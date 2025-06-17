@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Server Manager</title>
+  </head>
+  <body>
+    <h1>Server Manager</h1>
+    <div id="config"></div>
+    <script>
+      async function loadConfig() {
+        const res = await fetch('/api/config');
+        const cfg = await res.json();
+        document.getElementById('config').textContent = JSON.stringify(cfg, null, 2);
+      }
+      loadConfig();
+    </script>
+  </body>
+</html>
